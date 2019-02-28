@@ -9,15 +9,15 @@ module.exports = function makeExchange(currency) {
     }
     var result = {};
     if (currency <=0){
-        return {};
+    // result.error = 'You are rich, my friend! We don\'t have so much coins for exchange';
     }else if(currency >= 10000){
-        return false;
+        result.error = 'You are rich, my friend! We don\'t have so much coins for exchange';
     }
     else{
             for(key in coins){
                 var currentNumOfCurrrentCoin = 0;
                 currentNumOfCurrrentCoin = currency/coins[key];
-            if(currentNumOfCurrrentCoin > 1){                  
+            if(currentNumOfCurrrentCoin >= 1){                  
                     result[key] = currentNumOfCurrrentCoin-(currentNumOfCurrrentCoin%1);
 
             } 
